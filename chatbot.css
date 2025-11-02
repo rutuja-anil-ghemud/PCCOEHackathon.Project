@@ -1,0 +1,76 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #eef2f3;
+  margin: 0;
+  padding: 0;
+background: url('chatbot.png') ;
+
+  display: flex;
+}
+
+#chatbox {
+  width: 450px;
+  height: 450px;
+  max-width: 100%;
+  margin: 20px auto;
+
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+}
+b
+#chatlog {
+  height: 350px;
+  overflow-y: auto;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.message {
+  margin: 10px 0;
+}
+
+.user {
+  text-align: right;
+}
+
+.user .text {
+  display: inline-block;
+  background: #0084ff;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 15px 15px 0 15px;
+  max-width: 80%;
+}
+
+.bot .text {
+  display: inline-block;
+  background: #f1f0f0;
+  color: #333;
+  padding: 8px 15px;
+  border-radius: 15px 15px 15px 0;
+  max-width: 80%;
+}
+
+#inputArea {
+    position: fixed;
+  display: flex;
+  padding-top: 100px;
+}
+
+#inputMessage {
+  flex-grow: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 0 0 0 8px;
+  font-size: 16px;
+}
+
+#sendButton {
+  background: #0084ff;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 0 0 8px 0;
+}

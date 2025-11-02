@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IN National Monsoon Watch - Details</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<!-- Include Font Awesome CDN in your HTML head -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body>
+    <div id="loading-overlay">
+        <div class="spinner"></div>
+        <p>Fetching latest data...</p>
+    </div>
+
+    <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Search</a>
+    <div class="container">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <div>
+                    <h2 data-translate="title">IN National Monsoon Watch</h2>
+                    <p class="subtitle" data-translate="subtitle">AI-Powered Decision Support System</p>
+                </div>
+                <select id="language-select" aria-label="Select Language">
+                    <option value="en">English</option>
+                    <option value="mr">मराठी</option>
+                    <option value="hi">हिन्दी</option>
+                </select>
+            </div>
+
+            <div id="helpline" class="info-box">
+                <h3><i class="fas fa-phone-alt"></i> Emergency Helplines</h3>
+                <div id="helpline-content">Loading...</div>
+            </div>
+
+            <div id="imd-alert" class="info-box">
+                <h3><i class="fas fa-satellite-dish"></i> Official IMD Alert</h3>
+                <div id="imd-alert-content">Loading...</div>
+            </div>
+
+            <div id="impact-analysis" class="info-box">
+                <h3 data-translate="impact_analysis"><i class="fas fa-exclamation-triangle"></i> Impact Analysis</h3>
+                <div id="impact-content">Loading...</div>
+            </div>
+
+            <div id="recommended-actions" class="info-box">
+                <h3 data-translate="recommended_actions"><i class="fas fa-check-circle"></i> Recommended Actions</h3>
+                <div id="actions-content">Loading...</div>
+            </div>
+            
+            <div id="disaster-management" class="info-box">
+                <h3><i class="fas fa-house-damage"></i> Disaster Management Advisory</h3>
+                <div id="disaster-content">Loading...</div>
+            </div>
+            
+            <div id="crop-advisory" class="info-box">
+                <h3 data-translate="crop_advisory"><i class="fas fa-seedling"></i> Crop-Specific Advisory</h3>
+                <div id="crop-content">Loading...</div>
+            </div>
+
+            <div id="soil-advisory" class="info-box">
+                <h3 data-translate="soil_advisory"><i class="fas fa-mountain"></i> Soil & Planting Advisory</h3>
+                <div id="soil-content">Loading...</div>
+            </div>
+
+            <div id="historical-info" class="info-box">
+                <h3 data-translate="historical_incidents"><i class="fas fa-history"></i> Historical Incidents</h3>
+                <div id="historical-content">Loading...</div>
+            </div>
+
+            <div class="chat-container">
+                <div class="chat-header">
+    
+                </div>
+                <div class="chat-box" id="chat-box"></div>
+                <div class="chat-input-area">
+
+
+
+                <h3 id="chat-input" >For More Informarion Goes On Weather Assistant</h3>
+                        <a href="chatbot.html"><button id="send-btn">
+                            <!-- Chatbot icon using <i> tag -->
+<i class="fas fa-robot"style="width:50px; height:50px; font-size:50px;"></i>
+
+                        </button></button></a>
+                        
+                </div>
+            </div>
+        </div>
+
+
+        <div class="main-content">
+            <div class="main-header">
+                <h3 id="details-title">Detailed View</h3>
+                <div id="status-header" class="status-header">
+                    <div class="status-icon"><i class="fas fa-shield-alt"></i></div>
+                    <div class="status-text">
+                        <h4 data-translate="risk_level_title">Current Risk Level</h4>
+                        <p id="risk-assessment">Loading status...</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="current-conditions-grid">
+                <div class="main-temp-card card">
+                    <div class="weather-icon" id="weather-icon"><i class="fas fa-sun"></i></div>
+                    <p id="temperature">--</p>
+                    <div class="feels-like" id="feels-like">Feels like --</div>
+                </div>
+                <div class="card">
+                    <h4><i class="fas fa-tint"></i> Humidity</h4>
+                    <p id="humidity">--</p>
+                </div>
+                <div class="card">
+                    <h4><i class="fas fa-cloud-showers-heavy"></i> Rainfall (1h)</h4>
+                    <p id="rainfall">--</p>
+                </div>
+                <div class="card">
+                    <h4><i class="fas fa-wind"></i> Wind Speed</h4>
+                    <p id="wind-speed">--</p>
+                </div>
+                <div class="card">
+                    <h4><i class="fas fa-tachometer-alt"></i> Pressure</h4>
+                    <p id="pressure">--</p>
+                </div>
+                 <div class="card">
+                    <h4><i class="fas fa-eye"></i> Visibility</h4>
+                    <p id="visibility">--</p>
+                </div>
+                <div class="card aqi-card" id="aqi-card">
+                    <h4><i class="fas fa-smog"></i> Air Quality (AQI)</h4>
+                    <p id="aqi">--</p>
+                    <div class="aqi-status" id="aqi-status">--</div>
+                </div>
+                <div class="card uv-card" id="uv-card">
+                    <h4><i class="fas fa-sun"></i> UV Index</h4>
+                    <p id="uv-index">--</p>
+                    <div class="uv-status" id="uv-status">--</div>
+                </div>
+                <div class="card">
+                    <h4><i class="fas fa-sunrise"></i> Sunrise</h4>
+                    <p id="sunrise-time" class="time-font">--</p>
+                </div>
+                 <div class="card">
+                    <h4><i class="fas fa-sunset"></i> Sunset</h4>
+                    <p id="sunset-time" class="time-font">--</p>
+                </div>
+            </div>
+
+            <div class="charts-maps">
+                <div class="map-container">
+                    <div class="map-header">
+                        <h3 data-translate="geo_location">Geographic View</h3>
+                        <div class="map-toggle">
+                            <button id="location-map-btn" class="active">Location</button>
+                            <button id="radar-map-btn">Live Radar</button>
+                        </div>
+                    </div>
+                    <div id="map"></div>
+                    <iframe id="radar-map-iframe" src="" width="100%" height="100%" frameborder="0"></iframe>
+                </div>
+                <div class="forecast-container">
+                    <h3>5-Day Precipitation Forecast</h3>
+                    <canvas id="forecast-chart"></canvas>
+                    <div id="chart-legend" class="legend"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="config.js"></script>
+    <script src="details.js"></script>
+
+       <div> <h3>For Additional Information</h3>
+        <span>&#129489;&#8205;&#127806;
+   <select onchange="if(this.value) window.location.href=this.value;">
+  <option value=""></option>
+  <option value="English.html">English</option>
+  <option value="Marathi.html">मराठी</option>
+  <option value="Hindi.html">हिन्दी</option>
+</select>
+
+</span> <!-- Farmer emoji --></div>
+</body>
+</html>
